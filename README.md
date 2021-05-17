@@ -74,3 +74,15 @@ Making sure at the start of each day we divide work equally between team members
 - How will you approach each other and the challenge of building an application knowing that it is impossible for two people to be at the exact same place in understanding and skill level?
 
 By reviewing previous code at start of each day to make sure that everyone understands everything we did.
+
+## Time Estimation Lab11
+
+Name of feature: User Authentication with Auth0
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 2 pm
+
+Finish time: 6 pm
+
+Actual time needed to complete: 4 hours
