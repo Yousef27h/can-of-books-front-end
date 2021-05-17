@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+
 import { Auth0Provider } from "@auth0/auth0-react";
 
 // TODO: wrap everything in Auth0
@@ -8,8 +9,8 @@ ReactDOM.render(
   <React.StrictMode>
 
      <Auth0Provider
-    domain="dev-m9oqk89x.eu.auth0.com"
-    clientId="Xbz9JmrJxWm4JjNKX5OqkndPFEim9v3G"
+    domain={process.env.REACT_APP_DOMAIN_KEY}
+    clientId={process.env.REACT_APP_CLIENTID_KEY}
     redirectUri={window.location.origin}
   >
     <App />
