@@ -17,7 +17,7 @@ class MyFavoriteBooks extends React.Component {
   };
 
 
-  getbooks = async () => {
+  componentDidMount  = async () => {
 
 
     try {
@@ -26,7 +26,7 @@ class MyFavoriteBooks extends React.Component {
       const mybooks = await axios.get(`${this.state.server}/books?email=${user.email}`);
 
       // http://localhost:3838/books
-
+      console.log(mybooks);
 
 
       this.setState({
@@ -50,7 +50,9 @@ class MyFavoriteBooks extends React.Component {
         {     this.state.books.map((book, idx) => {
           return (
             <div key={idx}>
-              {book.name}
+             <h1> {book.name} </h1>
+             <p>{book.description}</p>
+
             </div>
           )
         })
@@ -60,4 +62,4 @@ class MyFavoriteBooks extends React.Component {
   }
 }
 
-export default withAuth0 (MyFavoriteBooks);
+export default withAuth0(MyFavoriteBooks);
