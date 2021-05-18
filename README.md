@@ -86,3 +86,15 @@ Start time: 2 pm
 Finish time: 6 pm
 
 Actual time needed to complete: 4 hours
+
+## Time Estimation Lab12
+
+Name of feature: MongoDB
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 2:00 pm
+
+Finish time: 4:30 pm
+
+Actual time needed to complete: 2.5 hours
