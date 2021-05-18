@@ -18,7 +18,7 @@ import {
 class App extends React.Component {
 
   render() {
-    const { user, isAuthenticated } = this.props.auth0;
+    const {  isAuthenticated } = this.props.auth0;
     console.log('app', isAuthenticated);
     // console.log(useAuth0.user);
     return(
