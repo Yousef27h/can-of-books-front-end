@@ -7,8 +7,6 @@ import BookForm from "./components/BookForm";
 import axios from "axios";
 import Books from "./components/Books";
 
-// const axios = require("axios");
-
 class MyFavoriteBooks extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +31,9 @@ class MyFavoriteBooks extends React.Component {
 
       this.setState({
         books: mybooks.data,
+        email: user.email
       });
+      console.log(this.state.books)
     } catch (error) {
       console.log(error);
     }
@@ -57,25 +57,25 @@ class MyFavoriteBooks extends React.Component {
     const newBooks = await axios.post(`${this.state.server}/books`, bookData);
 
     this.setState({
-      books: newBooks,
+      books: newBooks.data,
     });
   };
 
-  // deleteBook = async (index) => {
-  //   const newArrayOfBooks = this.state.books.filter((book, idx) => {
-  //     return idx !== index;
-  //   });
+  deleteBook = async (index) => {
+    const newArrayOfBooks = this.state.books.filter((book, idx) => {
+      return idx !== index;
+    });
 
-  //   this.setState({
-  //     books: newArrayOfBooks,
-  //   });
+    this.setState({
+      books: newArrayOfBooks,
+    });
+    const { user } = this.props.auth0;
+    const query = {
+      email: user.email,
+    };
 
-  //   const query = {
-  //     email: this.state.email,
-  //   };
-
-  //   await axios.delete(`${this.state.server}/books/${index}`, { params: query });
-  // };
+    await axios.delete(`${this.state.server}/books/${index}`, { params: query });
+  };
 
   render() {
     return (

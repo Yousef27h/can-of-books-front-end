@@ -9,7 +9,7 @@ export class Books extends Component {
             <div key={idx}>
               <h1> {book.name} </h1>
               <p>{book.description}</p>
-              <button onClick={this.props.deleteBook(idx)}>Remove Book</button>
+              <button onClick={ () => this.props.deleteBook(idx)}>Remove Book</button>
             </div>
           );
         })}
