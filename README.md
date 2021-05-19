@@ -7,18 +7,19 @@
 
 Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. We Built out this code base to create an web app to track what books have impacted us, and what's recommended to read next.
 
-## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
-
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
+
+This project was built using HTML, CSS, and JavaScript React. Mongo was used to create our NoSQL database, and was manipulated by using mongoose. Auth0 was used to give users authentication and autherization. The libraris were used during this project:  axios, react-bootstrap, dotenv, mongoose, express, and cors.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+17-05-2021 2:00pm - Application now has authentication property.
+
+18-05-2021 2:30pm - Application now has a mongo database contains personal data for each user after authentication.
+
+19-05-2021 3:00pm - Application now has a form to create new data and store into our mongo database, and a delete button to remove data from our database.
 
 ## Credit and Collaborations
 
@@ -86,3 +87,26 @@ Start time: 2 pm
 Finish time: 6 pm
 
 Actual time needed to complete: 4 hours
+
+## Time Estimation Lab12
+
+Name of feature: MongoDB
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 2:00 pm
+
+Finish time: 4:30 pm
+
+Actual time needed to complete: 2.5 hours
+## Time Estimation Lab13
+
+Name of feature: Resource Create and Delete
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 3:30 pm
+
+Finish time: 5:30 pm
+
+Actual time needed to complete: 2 hours
