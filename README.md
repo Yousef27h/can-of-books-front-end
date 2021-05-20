@@ -6,6 +6,7 @@
 ## Overview
 
 Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. We Built out this code base to create an web app to track what books have impacted us, and what's recommended to read next.
+This repo contains our front-end work.
 
 
 ## Architecture
@@ -20,6 +21,8 @@ This project was built using HTML, CSS, and JavaScript React. Mongo was used to 
 18-05-2021 2:30pm - Application now has a mongo database contains personal data for each user after authentication.
 
 19-05-2021 3:00pm - Application now has a form to create new data and store into our mongo database, and a delete button to remove data from our database.
+
+19-05-2021 6:00pm - Application now has a form to update the information of the selected book and reflect changes on our database.
 
 ## Credit and Collaborations
 
@@ -108,5 +111,17 @@ Estimate of time needed to complete: 2 hours
 Start time: 3:30 pm
 
 Finish time: 5:30 pm
+
+Actual time needed to complete: 2 hours
+
+## Time Estimation Lab14
+
+Name of feature: Update a Resource
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 4:00 pm
+
+Finish time: 6:00 pm
 
 Actual time needed to complete: 2 hours
