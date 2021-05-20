@@ -6,6 +6,7 @@ import "./BestBooks.css";
 import BookForm from "./components/BookForm";
 import axios from "axios";
 import Books from "./components/Books";
+import BookUpdate from "./components/bookUpdate";
 
 class MyFavoriteBooks extends React.Component {
   constructor(props) {
@@ -16,6 +17,10 @@ class MyFavoriteBooks extends React.Component {
       server: process.env.REACT_APP_SERVER_URL,
       bookName: "",
       bookDescription: "",
+      showUpdate: false,
+      selectedBookName: "",
+      selectedBookDesc: "",
+      index: 0,
     };
   }
 
@@ -27,13 +32,13 @@ class MyFavoriteBooks extends React.Component {
       );
 
       // http://localhost:3838/books
-      console.log(mybooks);
+      // console.log(mybooks);
 
       this.setState({
         books: mybooks.data,
-        email: user.email
+        email: user.email,
       });
-      console.log(this.state.books)
+      // console.log(this.state.books);
     } catch (error) {
       console.log(error);
     }
@@ -74,19 +79,65 @@ class MyFavoriteBooks extends React.Component {
       email: user.email,
     };
 
-    await axios.delete(`${this.state.server}/books/${index}`, { params: query });
+    await axios.delete(`${this.state.server}/books/${index}`, {
+      params: query,
+    });
   };
 
+  showBookDetails = (index) => {
+    // console.log(this.state.books);
+    // console.log(index);
+    this.setState({
+      showUpdate: true,
+      selectedBookName: this.state.books[index].name,
+      selectedBookDesc: this.state.books[index].description,
+      index: index,
+    });
+  };
+  updateSelectName = (e) => {
+    // console.log(e.target.value);
+    this.setState({ selectedBookName: e.target.value });
+  };
+  updateSelectDesc = (e) => {
+    // console.log(e.target.value);
+    this.setState({ selectedBookDesc: e.target.value });
+  };
+  updateBooks = async (e) => {
+    e.preventDefault();
+    const index = this.state.index;
+    const bookData = {
+      email: this.state.email,
+      name: this.state.selectedBookName,
+      description: this.state.selectedBookDesc,
+    };
+    const newBook = await axios.put(`${this.state.server}/books/${index}`, bookData);
+    this.setState({
+      books: newBook.data
+    })
+  };
   render() {
     return (
       <Jumbotron>
         <h1>My Favorite Books</h1>
-        <Books books={this.state.books}  deleteBook={this.deleteBook}/>
+        <Books
+          books={this.state.books}
+          deleteBook={this.deleteBook}
+          showBookDetails={this.showBookDetails}
+        />
         <BookForm
           updateBookName={this.updateBookName}
           updateBookDescription={this.updateBookDescription}
           addNewBook={this.addNewBook}
         />
+        {this.state.showUpdate && (
+          <BookUpdate
+            name={this.state.selectedBookName}
+            description={this.state.selectedBookDesc}
+            updateSelectName={this.updateSelectName}
+            updateSelectDesc={this.updateSelectDesc}
+            updateBooks={this.updateBooks}
+          />
+        )}
       </Jumbotron>
     );
   }
